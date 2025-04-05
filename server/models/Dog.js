@@ -40,7 +40,7 @@ let DogModel = {};
    it's default to the Date.now function. When a new cat is made, it will execute the default
    function and return the current date.
 */
-const CatSchema = new mongoose.Schema({
+const DogSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -48,7 +48,7 @@ const CatSchema = new mongoose.Schema({
     unique: true,
   },
 
-  name: {
+  breed: {
     type: String,
     required: true,
     trim: true,
@@ -56,6 +56,7 @@ const CatSchema = new mongoose.Schema({
 
   age: {
     type: Number,
+    min: 0,
     required: true,
   },
 
@@ -69,7 +70,7 @@ const CatSchema = new mongoose.Schema({
 // (the name of the object type. Can be anything)
 // and the schema to make a model from.
 // Look at the model variable definition above for more details.
-CatModel = mongoose.model('Cat', CatSchema);
+DogModel = mongoose.model('Dog', DogSchema);
 
 // We only want to export the cat model, so we can overwrite the entire exports object.
-module.exports = CatModel;
+module.exports = DogModel;
